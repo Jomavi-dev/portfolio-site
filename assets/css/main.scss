@@ -1,5 +1,9 @@
-// Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@700&family=PT+Sans&display=swap');
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('http://fonts.cdnfonts.com/css/cooper-std');
+@import url('http://fonts.cdnfonts.com/css/cooper-black');
+@import url('http://fonts.cdnfonts.com/css/free-notulen-serif-display');
+@import url('http://fonts.cdnfonts.com/css/signerica-fat');
 
 // CSS Variables
 :root {
@@ -50,6 +54,7 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 body {
@@ -69,7 +74,7 @@ p {
 }
 
 h1 {
-  font-family: 'cooper', 'Libre Caslon Text', serif;
+  font-family: 'Cooper Std', 'Cooper Black', 'Free - Notulen Serif Display', 'PT Sans', sans-serif;
   font-size: var(--h1-font-size);
   text-transform: capitalize;
 }
@@ -137,8 +142,7 @@ nav {
     .nav__list {
       .nav__item {
         &:hover {
-          background-color: var(--main-color);
-          color: var(--white-color);
+          background-color: var(--ash-color);
         }
         .nav__link {
           display: block;
@@ -169,14 +173,25 @@ header {
       font-weight: var(--font-semi);
     }
   }
+  .name {
+    font-family: 'Signerica Medium', 'PT Sans', 'Segoe UI', sans-serif;
+  }
   p {
     font-size: 1.8rem;
     background-color: var(--main-color);
     padding: var(--mb-1) 0;
     margin: var(--mb-2) 0;
+    @media screen and (min-width: 320px) {
+      max-width: 370px;
+      margin: auto;
+    }
   }
   img {
     padding: var(--mb-2);
+    @media screen and (min-width: 300px) {
+      width: 300px;
+      margin: auto;
+    }
   }
 }
 
@@ -185,23 +200,28 @@ main {
     background-color: var(--gray-color);
     padding: var(--mb-5) var(--mb-2);
     color: var(--ash-color);
+    .skill__wrapper {
+      @media screen and (min-width: 320px) {
+        max-width: 350px;
+        margin: auto;
+      }
+    }
     h1 {
       color: var(--main-color);
       position: relative;
       width: max-content;
       max-width: 100%;
       margin: 0 auto var(--mb-3);
-      padding: 0 0 var(--mb-2);
+      padding: 0 0 var(--mb-1);
 
       &::after {
         content: '';
         position: absolute;
         background-color: var(--main-color);
-        left: 18%;
+        left: 35%;
         bottom: 0;
         height: 2px;
         width: var(--mb-5);
-        transform: translateX(50%);
       }
     }
     .skill__item {
@@ -218,6 +238,7 @@ main {
     a {
       cursor: pointer;
       background-color: var(--main-color);
+      background: linear-gradient(#7ba177, var(--main-color));
       text-decoration: none;
       color: var(--white-color);
       padding: var(--mb-1) var(--mb-2);
@@ -225,7 +246,7 @@ main {
       display: inline-block;
       box-shadow: rgba(27, 31, 35, 0.15) -3px 3px 4px;
       margin: var(--mb-2);
-      transition: transform 0.7s;
+      transition: transform 0.5s;
 
       &:hover {
         transform: translateY(-2px);
@@ -235,6 +256,11 @@ main {
   .about {
     padding: var(--mb-5) var(--mb-2);
     background-color: var(--white-color);
+    @media screen and (min-width: 320px) {
+      max-width: 320px;
+      margin: auto;
+    }
+
     .about__intro {
       font-size: var(--medium-font-size);
       font-weight: var(--font-bold);
@@ -265,6 +291,13 @@ main {
     .portfolio__images {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+      @media screen and (max-width: 320px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1 100%;
+      }
     }
   }
 }
@@ -292,36 +325,39 @@ footer {
   }
 }
 
+// @media screen and (min-width: 992px) {
 @media screen and (min-width: 768px) {
-  main {
-    .skill__wrapper {
-      max-width: 800px;
-    }
+  :root {
+    --h1-font-size: 3rem;
+    --medium-font-size: 1.2rem;
+    --normal-font-size: 1rem;
   }
-}
 
-@media screen and (min-width: 992px) {
   html {
-    // font-size: 14px;
-
     nav {
       padding: 0 var(--mb-5);
     }
     header {
-      position: relative;
-      max-width: 600px;
+      width: 600px;
       margin: auto;
-      text-align: right;
-      // min-height: 80vh;
+      min-height: 70vh;
+      text-align: left;
+      padding-top: var(--mb-5);
+      position: relative;
 
-      h2,
+      h2 {
+        padding-left: 8.5em;
+      }
       p {
-        padding-right: var(--mb-5);
+        max-width: 100%;
+        padding-left: 14em;
       }
 
       img {
-        display: none;
-        max-width: 350px;
+        max-width: 270px;
+        position: absolute;
+        top: var(--mb-3);
+        left: var(--mb-5);
       }
     }
 
@@ -330,7 +366,7 @@ footer {
       max-width: 800px;
       margin: auto;
       text-align: left;
-      min-height: 80vh;
+      min-height: 87vh;
 
       h1,
       p {
@@ -357,7 +393,7 @@ footer {
     main {
       .skills {
         .skill__wrapper {
-          background: url('assets/img/work1.png') norepeat;
+          background: url(assets/img/work1.png);
           display: flex;
           margin: 0 auto var(--mb-5);
           padding: var(--mb-4);

@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@700&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import url("http://fonts.cdnfonts.com/css/cooper-std");
+@import url("http://fonts.cdnfonts.com/css/free-notulen-serif-display");
+@import url("http://fonts.cdnfonts.com/css/signerica-fat");
 :root {
   --header-height: 4rem;
   --font-semi: 500;
@@ -44,6 +47,7 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 body {
@@ -63,7 +67,7 @@ p {
 }
 
 h1 {
-  font-family: 'cooper', 'Libre Caslon Text', serif;
+  font-family: 'Cooper Std', 'cooper', 'Free - Notulen Serif Display', sans-serif;
   font-size: var(--h1-font-size);
   text-transform: capitalize;
 }
@@ -144,8 +148,7 @@ nav .nav__menu {
 }
 
 nav .nav__menu .nav__list .nav__item:hover {
-  background-color: var(--main-color);
-  color: var(--white-color);
+  background-color: var(--ash-color);
 }
 
 nav .nav__menu .nav__list .nav__item .nav__link {
@@ -180,6 +183,10 @@ header h2:first-child {
   font-weight: var(--font-semi);
 }
 
+header .name {
+  font-family: 'Signerica Medium', 'PT Sans', 'Segoe UI', sans-serif;
+}
+
 header p {
   font-size: 1.8rem;
   background-color: var(--main-color);
@@ -187,14 +194,35 @@ header p {
   margin: var(--mb-2) 0;
 }
 
+@media screen and (min-width: 320px) {
+  header p {
+    max-width: 370px;
+    margin: auto;
+  }
+}
+
 header img {
   padding: var(--mb-2);
+}
+
+@media screen and (min-width: 300px) {
+  header img {
+    width: 300px;
+    margin: auto;
+  }
 }
 
 main .skills {
   background-color: var(--gray-color);
   padding: var(--mb-5) var(--mb-2);
   color: var(--ash-color);
+}
+
+@media screen and (min-width: 320px) {
+  main .skills .skill__wrapper {
+    max-width: 350px;
+    margin: auto;
+  }
 }
 
 main .skills h1 {
@@ -205,19 +233,17 @@ main .skills h1 {
   width: max-content;
   max-width: 100%;
   margin: 0 auto var(--mb-3);
-  padding: 0 0 var(--mb-2);
+  padding: 0 0 var(--mb-1);
 }
 
 main .skills h1::after {
   content: '';
   position: absolute;
   background-color: var(--main-color);
-  left: 18%;
+  left: 35%;
   bottom: 0;
   height: 2px;
   width: var(--mb-5);
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
 }
 
 main .skills .skill__item {
@@ -237,6 +263,8 @@ main .skills .skill__item p {
 main .skills a {
   cursor: pointer;
   background-color: var(--main-color);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7ba177), to(var(--main-color)));
+  background: linear-gradient(#7ba177, var(--main-color));
   text-decoration: none;
   color: var(--white-color);
   padding: var(--mb-1) var(--mb-2);
@@ -245,10 +273,10 @@ main .skills a {
   -webkit-box-shadow: rgba(27, 31, 35, 0.15) -3px 3px 4px;
           box-shadow: rgba(27, 31, 35, 0.15) -3px 3px 4px;
   margin: var(--mb-2);
-  -webkit-transition: -webkit-transform 0.7s;
-  transition: -webkit-transform 0.7s;
-  transition: transform 0.7s;
-  transition: transform 0.7s, -webkit-transform 0.7s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 main .skills a:hover {
@@ -259,6 +287,13 @@ main .skills a:hover {
 main .about {
   padding: var(--mb-5) var(--mb-2);
   background-color: var(--white-color);
+}
+
+@media screen and (min-width: 320px) {
+  main .about {
+    max-width: 320px;
+    margin: auto;
+  }
 }
 
 main .about .about__intro {
@@ -301,6 +336,25 @@ main .portfolio .portfolio__images {
       grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
 }
 
+@media screen and (max-width: 320px) {
+  main .portfolio .portfolio__images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+
 footer {
   color: var(--main-color);
   background-color: var(--dark-color);
@@ -327,35 +381,41 @@ footer .footer__socials a:hover {
 }
 
 @media screen and (min-width: 768px) {
-  main .skill__wrapper {
-    max-width: 800px;
+  :root {
+    --h1-font-size: 3rem;
+    --medium-font-size: 1.2rem;
+    --normal-font-size: 1rem;
   }
-}
-
-@media screen and (min-width: 992px) {
   html nav {
     padding: 0 var(--mb-5);
   }
   html header {
-    position: relative;
-    max-width: 600px;
+    width: 600px;
     margin: auto;
-    text-align: right;
+    min-height: 70vh;
+    text-align: left;
+    padding-top: var(--mb-5);
+    position: relative;
   }
-  html header h2,
+  html header h2 {
+    padding-left: 8.5em;
+  }
   html header p {
-    padding-right: var(--mb-5);
+    max-width: 100%;
+    padding-left: 14em;
   }
   html header img {
-    display: none;
-    max-width: 350px;
+    max-width: 270px;
+    position: absolute;
+    top: var(--mb-3);
+    left: var(--mb-5);
   }
   html .about {
     position: relative;
     max-width: 800px;
     margin: auto;
     text-align: left;
-    min-height: 80vh;
+    min-height: 87vh;
   }
   html .about h1,
   html .about p {
@@ -375,7 +435,7 @@ footer .footer__socials a:hover {
     right: var(--mb-4);
   }
   html main .skills .skill__wrapper {
-    background: url("assets/img/work1.png") norepeat;
+    background: url(assets/img/work1.png);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

@@ -1,3 +1,5 @@
+window.onload = function () { document.body.scrollTop = document.documentElement.scrollTop = 0; };
+
 // // Show Menu Handler
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId),
